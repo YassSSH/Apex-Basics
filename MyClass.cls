@@ -4,6 +4,12 @@ public with sharing class MyClass {
     }
 }
 
+
+
+
+
+
+
 // EXEC CONSOLE
 
 MyClass class1 = new MyClass();
