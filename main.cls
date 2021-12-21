@@ -69,3 +69,36 @@ Account[] acctsWithContacts = [SELECT Name, (SELECT FirstName,LastName FROM Cont
 Contact[] cts = acctsWithContacts[0].Contacts;
 System.debug('Name of first associated contact: ' 
              + cts[0].FirstName + ', ' + cts[0].LastName);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Trailhead
+
+public class StringArrayTest {
+    
+    public  void generateStringArray(){
+        List<String> test = new List<String>();
+        test.add('Test');
+        test.add('Test');
+        test.add('Test');
+        test.add('Test');
+        for(Integer i = 0; i < test.size(); i++){
+            System.debug(test[i] + ' ' + i);
+        }
+
+
+    }
+
+}
