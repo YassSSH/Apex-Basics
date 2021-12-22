@@ -137,3 +137,30 @@ public class AccountHandler {
         return acct;
     }
 }
+
+
+
+
+public with sharing class ContactSearch {
+
+    public static List<Contact> searchForContacts(String lastname, String postalcode){
+        List<Contact> contactss = [SELECT ID, Name FROM contact WHERE LastName=lastname AND MailingPostalCode=postalcode];
+        return contactss;
+
+    }
+    
+}
+
+
+
+public with sharing class ContactAndLeadSearch {
+
+    public static List<List<sObject>> searchContactsAndLeads(String lastname){
+        List<List<sObject>> arrayy = [FIND :lastname IN ALL FIELDS RETURNING Contact(FirstName, LastName), Lead(FirstName, Lastname)];
+        return arrayy;
+    }
+    
+}
+
+
+// FIN APEX BASICS 
