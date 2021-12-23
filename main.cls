@@ -33,6 +33,7 @@ Account acct = new Account(
     NumberOfEmployees=50,
     BillingCity='San Francisco');
 insert acct;
+
 // Once the account is inserted, the sObject will be 
 // populated with an ID.
 // Get this ID.
@@ -164,3 +165,71 @@ public with sharing class ContactAndLeadSearch {
 
 
 // FIN APEX BASICS 
+
+
+
+
+
+
+
+public class creator {
+    public static Contact Account insertAccount(String name, String tel, Integer employee, String firstname, String lastname, String telcontact){
+        Account newAccount = new Account();
+        newAccount.Name = name;
+        newAccount.Phone = tel;
+        newAccount.NumberOfEmployees = employee;
+		ID accountID = newAccount.ID;
+
+        Contact newContact = new Contact(
+        FirstName=firstname,
+        LastName=lastname,
+        Phone = telcontact,
+        AccountId = accountID
+        );
+        try {
+            insert newAccount;
+            insert newContact;
+        } catch (Exception e) {
+            return null;
+        }
+        return newAccount;
+        return newContact
+    }
+
+
+    public class creator {
+	ID accountID;
+    public  Account insertAccount(String name, String tel, Integer employee){
+        Account newAccount = new Account();
+        newAccount.Name = name;
+        newAccount.Phone = tel;
+        newAccount.NumberOfEmployees = employee;
+		accountID = newAccount.ID;
+        try {
+            insert newAccount;
+        } catch (Exception e) {
+            return null;
+        }
+        return newAccount;
+    }
+    
+    public Contact insertRelatedContact(String firstname, String lastname, String telcontact){
+
+        Contact newContact = new Contact(
+            FirstName=firstname,
+            LastName=lastname,
+            Phone = telcontact,
+            AccountId = accountID
+        );
+
+            try {
+                insert newContact;
+            } catch (Exception e) {
+                return null;
+            }
+
+            return newContact;
+
+    }
+    
+}
