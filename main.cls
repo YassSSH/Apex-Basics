@@ -233,3 +233,17 @@ public class creator {
     }
     
 }
+	
+	
+public with sharing class arr {
+
+  public static List<String> listName( Integer n){
+     List<String> arrayy = new List<String>();
+     for(Integer i ; i < n ; i++){
+        arrayy.add('Test' + i);
+        System.debug(arrayy[i]);
+     }
+     return arrayy;
+   }
+   
+}
