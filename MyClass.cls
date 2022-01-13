@@ -59,3 +59,21 @@ num.print();
 // OR
 Myclass num = new MyClass(4654);
 num.print();
+
+
+
+
+
+
+
+public with sharing class MyClass {
+   
+   public static List<String> listName(integer n){
+      List<String> monarr = new List<String>();
+      for(Integer i ; i < n ; i++){
+         monarr.add('List' + i);
+         System.debug(monarr[i]);
+      }
+      return monarr;
+   } 
+}
