@@ -247,3 +247,16 @@ public with sharing class arr {
    }
    
 }
+	
+
+	
+	
+	
+trigger triggerAccount on Account (after insert, after update) {
+    if(Trigger.isAfter){
+        for(Account acc : Trigger.new){
+            System.debug('Nouveau compte : ' + acc.Name + ' ' + 'Créé le : ' + Date.today());
+        }
+    }
+
+}
