@@ -260,3 +260,21 @@ trigger triggerAccount on Account (after insert, after update) {
     }
 
 }
+	
+	
+	
+	
+	
+	
+trigger ClosedOpportunityTrigger on Opportunity (after insert, after update) {
+	List<Task> listtask = new List<Task>();
+    for(Opportunity opp : Trigger.new){
+        if(opp.StageName.contains('Closed Won')){
+            Task tsk = new Task();
+            tsk.Subject = 'Follow Up Test Task';
+            tsk.WhatId = opp.id;
+            listtask.add(tsk);
+        }
+    }
+    insert listtask;
+}
